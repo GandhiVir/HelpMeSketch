@@ -1,0 +1,11 @@
+name = "helpmesketch-tips"
+main = "index.js"
+compatibility_date = "2025-01-01"
+
+[vars]
+# Comma-separated list of sites allowed to call this worker.
+ALLOWED_ORIGINS = "http://localhost:5173"
+# MODEL = "gemini-2.5-flash-lite"
+
+# Set the key as a secret (never commit it):
+#   npx wrangler secret put GEMINI_API_KEY

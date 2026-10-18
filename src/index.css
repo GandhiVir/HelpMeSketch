@@ -1,0 +1,86 @@
+:root {
+  --paper: #faf8f4;
+  --card: #ffffff;
+  --ink: #2b2925;
+  --muted: #6e6a62;
+  --line: #e4dfd6;
+  --accent: #c2410c;
+  --accent-ink: #ffffff;
+  --blue: #3b5b92;
+  font-family: system-ui, -apple-system, 'Segoe UI', sans-serif;
+  color: var(--ink);
+  background: var(--paper);
+}
+
+* { box-sizing: border-box; }
+body { margin: 0; background: var(--paper); }
+h1, h2, p { margin: 0; }
+
+.app { max-width: 1200px; margin: 0 auto; padding: 0 16px 48px; }
+
+.top { display: flex; flex-wrap: wrap; align-items: baseline; gap: 4px 16px; padding: 20px 0 16px; }
+.top h1 { font-size: 22px; letter-spacing: -0.01em; }
+.top p { color: var(--muted); font-size: 14px; flex: 1; min-width: 200px; }
+
+.btn {
+  display: inline-flex; align-items: center; justify-content: center;
+  padding: 9px 16px; font: inherit; font-size: 14px; font-weight: 600;
+  border: 1px solid var(--line); border-radius: 8px; background: var(--card); color: var(--ink);
+  cursor: pointer; user-select: none; touch-action: manipulation;
+}
+.btn:hover:not(:disabled) { border-color: #c9c2b4; }
+.btn:disabled { opacity: 0.45; cursor: default; }
+.btn.primary { background: var(--accent); border-color: var(--accent); color: var(--accent-ink); }
+.btn.ghost { background: transparent; }
+.btn.wide { width: 100%; }
+.btn:focus-visible, input:focus-visible, select:focus-visible, .pill:focus-visible { outline: 2px solid var(--blue); outline-offset: 2px; }
+
+.drop {
+  display: flex; flex-direction: column; align-items: center; gap: 10px; text-align: center;
+  border: 2px dashed #cfc8ba; border-radius: 16px; padding: 56px 20px; background: var(--card);
+}
+.drop.over { border-color: var(--accent); background: #fff7f2; }
+.drop h2 { font-size: 24px; }
+.drop p { color: var(--muted); }
+.how { margin: 24px 0 0; padding-left: 20px; text-align: left; color: var(--muted); font-size: 14px; line-height: 1.7; max-width: 420px; }
+
+.work { display: grid; grid-template-columns: minmax(0, 1fr) 340px; gap: 24px; align-items: start; }
+.stage { min-width: 0; }
+.canvas-wrap {
+  position: relative; background: var(--card); border: 1px solid var(--line); border-radius: 12px;
+  padding: 10px; display: flex; justify-content: center;
+}
+canvas { display: block; max-width: 100%; max-height: 78vh; width: auto; height: auto; border-radius: 4px; }
+.busy { position: absolute; inset: 0; display: grid; place-items: center; background: rgba(250, 248, 244, 0.85); color: var(--muted); z-index: 1; border-radius: 12px; }
+
+.steps { display: flex; gap: 8px; margin-top: 12px; flex-wrap: wrap; }
+.pill {
+  width: 40px; height: 40px; border-radius: 50%; border: 1px solid var(--line); background: var(--card);
+  font: inherit; font-weight: 700; color: var(--muted); cursor: pointer;
+}
+.pill.active { background: var(--accent); border-color: var(--accent); color: var(--accent-ink); }
+
+.panel { background: var(--card); border: 1px solid var(--line); border-radius: 12px; padding: 18px; display: flex; flex-direction: column; gap: 12px; }
+.panel h2 { font-size: 20px; line-height: 1.25; }
+.panel p { font-size: 14px; line-height: 1.55; }
+.eyebrow { color: var(--accent); font-weight: 700; font-size: 12px !important; letter-spacing: 0.06em; text-transform: uppercase; }
+.watch { color: var(--muted); }
+.ai { background: #fff4ec; border-left: 3px solid var(--accent); padding: 8px 10px; border-radius: 4px; }
+.nav { display: flex; gap: 8px; }
+.nav .btn { flex: 1; }
+hr { border: 0; border-top: 1px solid var(--line); margin: 4px 0; width: 100%; }
+
+.field { display: flex; flex-direction: column; gap: 6px; font-size: 14px; }
+.field label { display: flex; justify-content: space-between; font-weight: 600; }
+.field label span { color: var(--muted); font-weight: 500; }
+.field input[type='range'] { width: 100%; accent-color: var(--accent); }
+.field select { padding: 8px; font: inherit; border: 1px solid var(--line); border-radius: 8px; background: var(--card); }
+.checks { display: flex; flex-direction: column; gap: 6px; font-size: 14px; }
+.hint { color: var(--muted); }
+.hint.small { font-size: 12px !important; }
+.error { color: #b42318; font-size: 14px; }
+
+@media (max-width: 860px) {
+  .work { grid-template-columns: 1fr; }
+  canvas { max-height: 60vh; }
+}
